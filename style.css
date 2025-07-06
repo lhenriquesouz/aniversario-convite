@@ -36,7 +36,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://i.imgur.com/3WdjfYw.png') no-repeat center center / contain;
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 100%);
   opacity: 0.1;
   /* Levemente mais visível para dar mais presença */
   z-index: -1;
