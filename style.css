@@ -1,0 +1,357 @@
+:root {
+  --color-primary: #e62020;
+  /* Vermelho da Mônica */
+  --color-secondary: #ffd700;
+  /* Amarelo do Cebolinha */
+  --color-accent: #007bff;
+  /* Azul do Cascão */
+  --color-text: #333;
+  --color-background: #ffe0e6;
+  /* Rosa suave */
+  --color-card-bg: #ffffff;
+  --color-button: #28a745;
+  /* Verde para o botão de confirmação */
+  --color-button-hover: #218838;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--color-background);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  box-sizing: border-box;
+  /* Garante que padding e border sejam incluídos na largura/altura total */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://i.imgur.com/3WdjfYw.png') no-repeat center center / contain;
+  opacity: 0.1;
+  /* Levemente mais visível para dar mais presença */
+  z-index: -1;
+  /* Para ficar bem no fundo */
+  pointer-events: none;
+}
+
+.container {
+  background: var(--color-card-bg);
+  max-width: 760px;
+  /* Um pouco maior para mais espaço */
+  width: 95%;
+  margin: 20px auto;
+  border-radius: 25px;
+  /* Bordas mais arredondadas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  /* Sombra mais proeminente */
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 20px;
+  /* Espaçamento no final */
+}
+
+.header {
+  background: linear-gradient(135deg, var(--color-primary), #ff4d4d);
+  /* Gradiente no header */
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 8px solid var(--color-secondary);
+  /* Borda amarela vibrante */
+}
+
+.header img.logo {
+  width: 250px;
+  /* Aumenta um pouco o logo */
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+  /* Sombra no logo */
+}
+
+.header .invite-text {
+  font-family: 'Bubblegum Sans', cursive;
+  /* Nova fonte mais "infantil" */
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 4rem;
+  /* Maior e mais impactante */
+  color: var(--color-secondary);
+  /* Cor do texto principal do nome */
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin: 0;
+  text-shadow:
+    -2px -2px 0 var(--color-accent),
+    /* Contorno azul */
+    2px -2px 0 var(--color-accent),
+    -2px 2px 0 var(--color-accent),
+    2px 2px 0 var(--color-accent),
+    0 0 10px rgba(0, 0, 0, 0.4);
+  /* Sombra suave */
+}
+
+.header img.top-banner {
+  width: calc(100% + 40px);
+  /* Para ultrapassar as bordas e dar um efeito de "recorte" */
+  max-width: none;
+  height: auto;
+  border-radius: 0;
+  /* Remove borda */
+  margin: 20px -20px -25px -20px;
+  /* Ajusta a margem para cobrir o espaço */
+  display: block;
+  position: relative;
+  z-index: 2;
+  /* Para ficar acima do gradiente do header */
+  filter: drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.2));
+  /* Sombra para dar profundidade */
+}
+
+.section-content {
+  padding: 30px;
+  /* Aumenta o padding das seções */
+  color: var(--color-text);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Responsivo com tamanho mínimo */
+  gap: 25px;
+  /* Mais espaço entre os cards */
+  margin-top: 30px;
+  padding: 0 30px;
+  /* Padding para as laterais */
+}
+
+.detail-card {
+  background: #fdfdfd;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 5px solid;
+  /* Adiciona uma borda colorida na parte inferior */
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.detail-card.date {
+  border-color: #ff99cc;
+}
+
+/* Rosa */
+.detail-card.time {
+  border-color: #88ccaa;
+}
+
+/* Verde água */
+.detail-card.location {
+  border-color: #ffcc66;
+}
+
+/* Laranja claro */
+.detail-card.info {
+  border-color: #c099ff;
+}
+
+/* Lilás */
+
+.detail-card .icon-wrapper {
+  width: 70px;
+  /* Maior */
+  height: 70px;
+  /* Maior */
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eee;
+  /* Fundo do ícone */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card.date .icon-wrapper {
+  background: #ffe6f2;
+}
+
+.detail-card.time .icon-wrapper {
+  background: #e6ffee;
+}
+
+.detail-card.location .icon-wrapper {
+  background: #fff2e6;
+}
+
+.detail-card.info .icon-wrapper {
+  background: #f2e6ff;
+}
+
+.detail-card .icon-wrapper img {
+  width: 45px;
+  /* Ajusta o tamanho do ícone */
+  height: 45px;
+}
+
+.detail-card h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  /* Título maior */
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+  /* Cor principal para títulos dos cards */
+}
+
+.detail-card p,
+.detail-card address,
+.detail-card li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.detail-card ul {
+  list-style: none;
+  /* Remove bullet points padrão */
+  padding: 0;
+  text-align: left;
+  /* Alinha o texto da lista à esquerda */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.detail-card ul li:before {
+  content: "🎈";
+  /* Novo bullet point divertido */
+  margin-right: 8px;
+}
+
+.map-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.map-link:hover {
+  color: #0056b3;
+}
+
+.action-button {
+  display: inline-block;
+  padding: 15px 30px;
+  /* Botão maior */
+  margin: 30px auto;
+  background: var(--color-button);
+  color: #fff;
+  border-radius: 50px;
+  /* Mais arredondado */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+  /* Texto maior */
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.action-button:hover {
+  background: var(--color-button-hover);
+  transform: translateY(-3px);
+  /* Efeito ao passar o mouse */
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+}
+
+/* Animações (Opcional, mas legal!) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 3rem;
+    /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  .header .invite-text {
+    font-size: 1.4rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    /* Coluna única em telas menores */
+    padding: 0 20px;
+  }
+
+  .section-content {
+    padding: 20px;
+  }
+
+  .action-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+
+  .detail-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .detail-card p,
+  .detail-card address,
+  .detail-card li {
+    font-size: 1rem;
+  }
+}

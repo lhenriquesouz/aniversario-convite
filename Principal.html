@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Maria Clara - 1 Aninho da Mônica!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@300;400;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Turma_da_M%C3%B4nica_Logo.svg/800px-Turma_da_M%C3%B4nica_Logo.svg.png" alt="Logo Turma da Mônica">
+            <div class="invite-text">Te convidado para o</div>
+            <h1>Primeiro Aninho da Maria Clara!</h1>
+            <img class="top-banner" src="https://s3.amazonaws.com/blog.dentrodahistoria.com.br/wp-content/uploads/2021/06/29175214/thumb-turma-monica.png" alt="Banner Turma da Mônica">
+        </div>
+
+        <div class="section-content">
+            <p>Prepare-se para uma tarde cheia de alegria, brincadeiras e muitas guloseimas para celebrar o primeiro aninho da nossa pequena Maria Clara!</p>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-card date">
+                <div class="icon-wrapper">
+                    <img src="https://img.icons8.com/fluency/48/calendar.png" alt="Data"/>
+                </div>
+                <h2>Quando?</h2>
+                <p>Sábado, 23 de Agosto de 2025</p>
+            </div>
+
+            <div class="detail-card time">
+                <div class="icon-wrapper">
+                    <img src="https://img.icons8.com/fluency/48/alarm-clock.png" alt="Horário"/>
+                </div>
+                <h2>Que Horas?</h2>
+                <p>14:00h</p>
+            </div>
+
+            <div class="detail-card location">
+                <div class="icon-wrapper">
+                    <img src="https://img.icons8.com/fluency/48/marker-storm.png" alt="Local"/>
+                </div>
+                <h2>Onde?</h2>
+                <address class="not-italic">
+                    Recanto Pica Pau<br>
+                    Bairro Cervo<br>
+                    Pouso Alegre - MG, CEP: 01234-567
+                </address>
+                <div class="map">
+                  <p class="info"><strong>Como chegar:</strong></p>
+                  <button onclick="irParaFesta()" style="padding: 12px 20px; background-color: #1976d2; color: white; border: none; border-radius: 10px; font-size: 1rem; cursor: pointer;">
+                    Traçar rota até o local 🎯
+                  </button>
+                </div>
+            </div>
+
+            <div class="detail-card info">
+                <div class="icon-wrapper">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="Informações"/>
+                </div>
+                <h2>Informações Especiais</h2>
+                <ul>
+                    <li>Para a festa ficar ainda mais divertida traga seu/sua filho(a) a caráter de algum personagem da Turma da Mônica! <b style="color: #e62020;">(Exceto a Mônica)</b></li>
+                    <li>Haverá bolo, docinhos, salgados e refrigerantes para todos!</li>
+                    <li>Sugestão de presentes: <br>Roupas 2 ou 3 anos. <br>Brinquedo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <a class="action-button" href="https://wa.me/5535999104420?text=Confirmo%20presença%20no%20aniversário%20da%20Maria%20Clara!" target="_blank">Confirmar Presença</a>
+        </div>
+
+        <div class="footer">
+            Convite feito com carinho para Maria Clara &copy; 2025
+        </div>
+    </div>
+    <script>
+      function irParaFesta() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const destino = "-22.1397052,-45.9187065";
+            const rotaUrl = `https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${destino}&travelmode=driving`;
+            window.open(rotaUrl, '_blank');
+          }, function(error) {
+            alert("Não foi possível obter sua localização. Verifique as permissões do navegador.");
+          });
+        } else {
+          alert("Seu navegador não suporta geolocalização.");
+        }
+      }
+    </script>
+</body>
+</html>
